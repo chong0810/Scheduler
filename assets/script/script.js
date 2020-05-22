@@ -12,7 +12,8 @@ $(document).ready(function() {
     for (var i = 9; i < 18; i++) {
     
     
-        let whatTime = document.getElementById(JSON.stringify(i));
+        // let whatTime = document.getElementById(JSON.stringify(i));
+        let whatTime = $(`#${i}`);
         console.log(whatTime);
         
         // hours
@@ -37,8 +38,9 @@ $(document).ready(function() {
         // textDiv.val(localStorage.textDiv);
         // let textValue = $(".col-sm-9").val();
         // console.log(textValue);
-    
-        // $(whatTime).val(localStorage.getItem("textarea"));
+        
+        
+        $(`[value=${i}]`).text(localStorage.getItem(i));
     
         // $("textarea").data(whatTime, textDiv.val());
         
@@ -70,15 +72,12 @@ $(document).ready(function() {
         //    saveBtn.removeClass("saveBtnHover");
         //     saveBtn.addClass("saveBtn");
         // });
-        saveBtn.on("click", function() {
+        saveBtn.on("click", function () {
+                     
+           let time =  $(this).val();
             
-            // var input = $(whatTime).val();
-            // localStorage.setItem(whatTime, input);
-    
-            
-            localStorage.setItem(i, textDiv);
-            
-    
+          let saveText = ($(`[value= ${time}]`).val());
+            localStorage.setItem(time, saveText);
         });
     
     
