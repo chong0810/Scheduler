@@ -81,6 +81,7 @@ $(document).ready(function() {
         saveBtn.on("click", function () {
         
            let time =  $(this).val();
+           console.log(this);
             
           let saveText = ($(`[value= ${time}]`).val());
             localStorage.setItem(time, saveText);
